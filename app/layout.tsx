@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import '@photo-sphere-viewer/core/index.css'
 
 export const metadata: Metadata = {
   title: '360° Interactive Virtual Tour',

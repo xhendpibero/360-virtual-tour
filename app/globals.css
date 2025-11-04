@@ -31,6 +31,23 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+/* Slow horizontal panning for panoramic hero */
+@keyframes slow-pan-x {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.hero-pan {
+  background-repeat: no-repeat;
+  background-size: auto 120%;
+  background-position: 0% 50%;
+  animation: slow-pan-x 80s linear infinite alternate;
+}
+
+#herosection .psv-navbar {
+  display: none;
+}
+
 /* Smooth transitions */
 .transition-smooth {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

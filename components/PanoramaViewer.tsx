@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from 'react'
 
 interface PanoramaViewerProps {
   imageUrl: string
+  hideNavbar?: boolean
+  autoRotate?: boolean
+  autoRotateSpeedRpm?: number
 }
 
 // Type for the Viewer instance (photo-sphere-viewer has built-in types)
@@ -12,7 +15,7 @@ type ViewerInstance = {
   [key: string]: any
 }
 
-export default function PanoramaViewer({ imageUrl }: PanoramaViewerProps) {
+export default function PanoramaViewer({ imageUrl, hideNavbar = false, autoRotate = false, autoRotateSpeedRpm = 0.5 }: PanoramaViewerProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const viewerRef = useRef<ViewerInstance | null>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -26,7 +29,7 @@ export default function PanoramaViewer({ imageUrl }: PanoramaViewerProps) {
     const loadViewer = async () => {
       try {
         const photoSphereViewer = await import('@photo-sphere-viewer/core')
-        await import('@photo-sphere-viewer/core/index.css')
+        const { AutorotatePlugin } = await import('@photo-sphere-viewer/autorotate-plugin')
         const { Viewer } = photoSphereViewer
 
         // Initialize Photo Sphere Viewer
@@ -34,7 +37,7 @@ export default function PanoramaViewer({ imageUrl }: PanoramaViewerProps) {
           container: containerRef.current!,
           panorama: imageUrl,
           caption: '360° Panoramic View',
-          navbar: [
+          navbar: hideNavbar ? [] : [
             'zoom',
             'move',
             'caption',
@@ -44,9 +47,18 @@ export default function PanoramaViewer({ imageUrl }: PanoramaViewerProps) {
           minFov: 30,
           maxFov: 90,
           sphereCorrection: { pan: 0, tilt: 0, roll: 0 },
+          plugins: [
+            [AutorotatePlugin, { autorotatePitch: 0, autorotateSpeed: `${autoRotateSpeedRpm}rpm` } as any],
+          ],
         } as any)
 
         viewerRef.current = viewer
+        if (autoRotate) {
+          try {
+            const plugin = (viewer as any).getPlugin(AutorotatePlugin)
+            plugin?.start()
+          } catch {}
+        }
         setIsLoading(false)
       } catch (error) {
         console.error('Error loading panorama viewer:', error)

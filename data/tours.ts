@@ -25,5 +25,30 @@ export const virtualTours: VirtualTour[] = [
     location: 'Countryside',
     tags: ['Nature', 'Farm', 'Countryside', 'Landscape']
   }
+  ,
+  {
+    id: '4',
+    title: 'Nature Sunset Panorama',
+    description: 'Wide countryside panorama with dramatic sunset and smoke trails across vast fields.',
+    imageUrl: '/images-360/aerial-drone-panorama-view-nature-moldova-sunset-smoke-from-fire-wide-fields-road-sun.jpg',
+    location: 'Moldova',
+    tags: ['Nature', 'Sunset', 'Wide', 'Countryside']
+  },
+  {
+    id: '5',
+    title: 'Milky Way over Paranal',
+    description: 'A breathtaking view of the Milky Way arching over Paranal, showcasing a pristine night sky.',
+    imageUrl: '/images-360/A milky arc over Paranal.jpg',
+    location: 'Paranal Observatory',
+    tags: ['Night', 'Stars', 'Milky Way', 'Astronomy']
+  },
+  {
+    id: '6',
+    title: 'VISTA at Night',
+    description: 'VISTA telescope under the night sky in an immersive panoramic view.',
+    imageUrl: '/images-360/VISTA at night (Pano-VT version).jpg',
+    location: 'ESO Paranal, Chile',
+    tags: ['Night', 'Telescope', 'Astronomy', 'Panorama']
+  }
 ]
 
