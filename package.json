@@ -1,0 +1,33 @@
+{
+  "name": "360-virtual-tour",
+  "version": "1.0.0",
+  "description": "360° Interactive Virtual Tour Creation with React",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "latest",
+    "react-dom": "latest",
+    "next": "latest",
+    "@photo-sphere-viewer/core": "latest",
+    "framer-motion": "latest",
+    "react-icons": "latest",
+    "clsx": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^5.0.0",
+    "tailwindcss": "^3.4.1",
+    "postcss": "^8.4.35",
+    "autoprefixer": "^10.4.17",
+    "eslint": "latest",
+    "eslint-config-next": "latest"
+  }
+}
+
