@@ -39,7 +39,7 @@ export default function Home() {
         className="relative overflow-hidden text-white"
       >
         {/* 360° Hero Background */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0" id="herosection">
           <PanoramaViewer
             imageUrl={"/images-360/VISTA at night (Pano-VT version).jpg"}
             hideNavbar
